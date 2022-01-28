@@ -22,4 +22,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="prix_unitaire">Prix Unitaire</string>
     <string name="libelle">Libelle</string>
+    <string name="moyen_pu">Moyen_pu</string>
 </resources>

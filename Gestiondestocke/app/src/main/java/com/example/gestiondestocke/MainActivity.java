@@ -3,10 +3,7 @@ package com.example.gestiondestocke;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.ListView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.gestiondestocke.api.ApiClient;
@@ -29,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     AutoCompleteTextView dropdown;
     ArrayAdapter<String> dropdownAdapter;
     ListView articlesLv;
+    TextView nombre_produit_tv;
+    TextView moyenne_tv;
+    int nombre_produit;
+    double moyenne;
     int currCat;
 
     @Override
@@ -39,11 +40,16 @@ public class MainActivity extends AppCompatActivity {
         dropdown = findViewById(R.id.dd_tv);
         articlesLv = findViewById(R.id.articlesistView);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        moyenne_tv = findViewById(R.id.moyenne_tv);
+        nombre_produit_tv = findViewById(R.id.numbrer_tv);
         categories = new ArrayList<String>();
         articlesList = new ArrayList<String>();
+        moyenne = 0;
+        nombre_produit = 0;
 
         dropdownAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, categories);
         getCategories();
+
         dropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 getArticles((long) currCat);
             }
         });
-
+        getArticles((long) currCat);
 
         articlesAdapter = new ArrayAdapter(getApplicationContext(),
                 android.R.layout.simple_list_item_1,articlesList);
@@ -61,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        System.out.println("================ ON START ");
         super.onStart();
+        moyenne = 0;
+        nombre_produit = 0;
         getArticles((long) currCat);
     }
 
@@ -75,13 +84,25 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Article>> call, Response<List<Article>> response) {
                 Log.e(TAG, "onResponse: " +  response.body());
                 try {
+
+                    moyenne = 0;
+                    nombre_produit = 0;
+
                     response.body().forEach((article)-> {
-//                        System.out.println(article.toString());
-                        articlesList.add(article.getId()+"        "+article.getName()+"        "+article.getPu());
-//                        System.out.println(articlesList);
+                        articlesList.add(article.getId()+"               "+article.getName()+"              "+article.getPu());
+                        moyenne += article.getPu();
+                        System.out.println(moyenne + " + "+article.getPu());
                     });
-                    System.out.println("hereee");
+
+                    nombre_produit = response.body().size();
+//                    moyenne = moyenne / (double) nombre_produit;
+                    System.out.println(moyenne / (double) nombre_produit +" Devision");
+
+                    moyenne_tv.setText(moyenne / (double) nombre_produit+" Dh");
+                    nombre_produit_tv.setText(nombre_produit+"");
+
                     articlesLv.setAdapter(articlesAdapter);
+
                 }catch(Exception e){
                     System.out.println(e);
                 }
@@ -116,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 dropdown.setAdapter(dropdownAdapter);
                 getArticles(new Long(categories.size()));
+                currCat = categories.size();
             }
 
             @Override
@@ -123,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onFailure: " + t.getLocalizedMessage() );
             }
         });
-        currCat = categories.size();
 
     }
 

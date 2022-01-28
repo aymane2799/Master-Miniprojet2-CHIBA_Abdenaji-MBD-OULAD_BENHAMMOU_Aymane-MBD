@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/najic/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/najic/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/btn_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/card_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/text_field_bg.xml" value="0.19583333333333333" />
@@ -15,6 +15,7 @@
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/dropdown_item.xml" value="0.1796875" />
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/fragment_first.xml" value="0.1597222222222222" />
         <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/fragment_second.xml" value="0.22" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/list_it.xml" value="0.1796875" />
       </map>
     </option>
   </component>
