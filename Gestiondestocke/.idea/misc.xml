@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/najic/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/btn_bg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/card_bg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/text_field_bg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/drawable/textfialdbg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/activity_article_page.xml" value="0.22" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/activity_article_pgae.xml" value="0.1597222222222222" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/content_article_pgae.xml" value="0.22" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/dropdown_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/fragment_first.xml" value="0.1597222222222222" />
+        <entry key="..\:/Users/najic/Desktop/Projects/Android_project/Gestiondestocke/app/src/main/res/layout/fragment_second.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

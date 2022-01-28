@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.GestionDeStocke" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_dark</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/purple_dark</item>
+    </style>
+    <style name="Theme.GestionDeStocke.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.GestionDeStocke.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.GestionDeStocke.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+</resources>
