@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 getArticles((long) currCat);
             }
         });
-        getArticles((long) currCat);
+        if (currCat > 0)
+            getArticles((long) currCat);
 
         articlesAdapter = new ArrayAdapter(getApplicationContext(),
                 android.R.layout.simple_list_item_1,articlesList);
@@ -67,11 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        System.out.println("================ ON START ");
+        System.out.println("================ ON START ======================");
         super.onStart();
         moyenne = 0;
         nombre_produit = 0;
-        getArticles((long) currCat);
+        if (currCat > 0)
+            getArticles((long) currCat);
     }
 
     public void getArticles(Long id){
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onResponse: " +  response.body());
                 try {
 
+                    System.out.println("Articles ===== "+currCat);
                     moyenne = 0;
                     nombre_produit = 0;
 
@@ -95,10 +98,11 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                     nombre_produit = response.body().size();
-//                    moyenne = moyenne / (double) nombre_produit;
-                    System.out.println(moyenne / (double) nombre_produit +" Devision");
-
-                    moyenne_tv.setText(moyenne / (double) nombre_produit+" Dh");
+                    if (nombre_produit > 0){
+                        moyenne_tv.setText(moyenne / (double) nombre_produit+" Dh");
+                    }else{
+                        moyenne_tv.setText(0+" Dh");
+                    }
                     nombre_produit_tv.setText(nombre_produit+"");
 
                     articlesLv.setAdapter(articlesAdapter);
@@ -138,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 dropdown.setAdapter(dropdownAdapter);
                 getArticles(new Long(categories.size()));
                 currCat = categories.size();
+                System.out.println("Categories====="+currCat);
             }
 
             @Override

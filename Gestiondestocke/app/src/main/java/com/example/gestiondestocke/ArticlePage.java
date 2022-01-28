@@ -77,9 +77,8 @@ public class ArticlePage extends AppCompatActivity {
 
 
         }else{
-            System.out.println("============================= here ========================");
             try {
-                System.out.println(currentCat+"     "+categories.get(currentCat));
+                System.out.println(currentCat+"     "+categories.get(currentCat-1));
             }catch(Exception e){
                 System.out.println(e);
             }
@@ -91,18 +90,23 @@ public class ArticlePage extends AppCompatActivity {
             articlePostCall.enqueue(new Callback<Article>() {
                 @Override
                 public void onResponse(Call<Article> call, Response<Article> response) {
-                    Log.e(TAG, "onResponse: " +  response.body());
+                    Log.e(TAG, "onResponse: Resp Body: " +  response.body());
+                    if (response.code() == 400){
+                        System.out.println("Article existe deja");
+                        show_toast("Article existe deja");
+                    }else{
+                        show_toast("Article ajoute");
+                    }
                 }
 
                 @Override
                 public void onFailure(Call<Article> call, Throwable t) {
-                    Log.e(TAG, "onFailure: " + t.getLocalizedMessage() );
+                    Log.e(TAG, "onFailure: Article existe deja" + t.getLocalizedMessage() );
                     show_toast("Article existe deja");
                 }
             });
-            show_toast("Article ajoute");
-            Intent intent = new Intent(this, MainActivity.class);
-            finish();
+            libelle.setText("");
+            pu.setText("");
         }
 
     }

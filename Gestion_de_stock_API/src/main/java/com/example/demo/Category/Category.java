@@ -20,6 +20,11 @@ public class Category {
         this.designiation = designiation;
     }
 
+    public Category(Long id, String designiation) {
+        this.id = id;
+        this.designiation = designiation;
+    }
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,

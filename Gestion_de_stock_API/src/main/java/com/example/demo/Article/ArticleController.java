@@ -1,6 +1,8 @@
 package com.example.demo.Article;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +23,9 @@ public class ArticleController {
     }
 
     @PostMapping
-    void createArticle(@RequestBody Article article){
+    ResponseEntity<Article> createArticle(@RequestBody Article article){
         System.out.println(article.toString());
-        articleService.createArticle(article);
+        return articleService.createArticle(article);
     }
 
     @GetMapping("/category/{catId}")

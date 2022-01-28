@@ -2,7 +2,10 @@ package com.example.demo.Article;
 
 import com.example.demo.Category.Category;
 import com.example.demo.Category.CategoryRepository;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,10 +34,12 @@ public class ArticleService {
 //
 //    }
 
-    public void createArticle(Article article){
+    public ResponseEntity<Article> createArticle(Article article){
         Optional<Article> article1 = articleRepository.findArticleByLibelle(article.getLibelle());
         if(article1.isPresent()){
-            throw new IllegalStateException("Article with name "+article.getLibelle()+" is already taken");
+//            throw new IllegalStateException("Article with name "+article.getLibelle()+" is already taken");
+
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
 
         Category category = categoryRepository.findById(article.getCategory().getId())
@@ -42,6 +47,7 @@ public class ArticleService {
 
         article.setCategory(category);
         articleRepository.save(article);
+        return new ResponseEntity(article, HttpStatus.OK);
     }
 
     public List<Article> getArticlesByCat(Long catId) {
