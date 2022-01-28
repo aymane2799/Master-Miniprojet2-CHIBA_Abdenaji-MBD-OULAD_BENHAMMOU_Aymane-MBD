@@ -14,7 +14,7 @@ public class CategoryConfig {
         return args -> {
             Category cat1 = new Category("Netoyage");
             Category cat2 = new Category("Alimentation");
-            Category cat3 = new Category("work");
+            Category cat3 = new Category("Beaute");
 
             repository.saveAll(
                     List.of(cat1, cat3, cat2)
